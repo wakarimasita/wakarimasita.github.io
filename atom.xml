@@ -43,23 +43,26 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://tjhaitang.github.io/2023/12/30/1229%E7%BB%84%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
-    <id>https://tjhaitang.github.io/2023/12/30/1229%E7%BB%84%E4%BC%9A%E8%AE%B0%E5%BD%95/</id>
-    <published>2023-12-30T11:06:43.954Z</published>
-    <updated>2024-01-05T12:49:29.305Z</updated>
+    <title>1229组会记录</title>
+    <link href="https://tjhaitang.github.io/2023/12/29/1229%E7%BB%84%E4%BC%9A%E8%AE%B0%E5%BD%95/"/>
+    <id>https://tjhaitang.github.io/2023/12/29/1229%E7%BB%84%E4%BC%9A%E8%AE%B0%E5%BD%95/</id>
+    <published>2023-12-29T11:03:35.000Z</published>
+    <updated>2024-01-09T08:54:40.942Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="title-1229组会记录tags-超级大柑橘categories-组会date-2023-12-29-19-03-35"><a href="#title-1229组会记录tags-超级大柑橘categories-组会date-2023-12-29-19-03-35" class="headerlink" title="title: 1229组会记录tags:  - 超级大柑橘categories: 组会date: 2023-12-29 19:03:35"></a>title: 1229组会记录<br>tags:<br>  - 超级大柑橘<br>categories: 组会<br>date: 2023-12-29 19:03:35</h2><h1 id="Information-Based-Optimal-Subdata-Selection-for-Big-Data-Linear-Regression"><a href="#Information-Based-Optimal-Subdata-Selection-for-Big-Data-Linear-Regression" class="headerlink" title="Information-Based Optimal Subdata Selection for Big Data Linear Regression"></a>Information-Based Optimal Subdata Selection for Big Data Linear Regression</h1><h2 id="背景与目的"><a href="#背景与目的" class="headerlink" title="背景与目的"></a>背景与目的</h2><ul><li>数据量极大，然而计算能力有限</li><li>选择目标数据中更有代表性的数据，有目的的选择以增强模型的估计效果<ul><li>找数据本身也需要计算量？</li></ul></li></ul><h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><ul><li>$\delta$向量代表是否选择这个变量，使用D-最优性准则——信息矩阵行列式最大化来求解</li><li>因为准确求解计算量较大，我们需要使用近似的方法进行</li><li>这个近似的方法是通过对这个行列式的上界进行分析得到的</li></ul><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol><li>选择第一个特征的2r个数据点</li><li>选择第二个以及之后所有的特征的，不同于第一步选择到的2r个数据点</li><li>获得了子数据的估计值和协方差矩阵</li></ol><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul><li>选择数据点这件事情本身虽然复杂度不低，但是是可以并行计算的</li><li>可以获得下界具有一些比较好的性质，其本身和上界的阶相似</li><li>为什么最大减最小会趋于零？</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>大数据处理的方式<ul><li>顺序计算</li><li>分布式计算</li><li>样本选择</li></ul></li></ul><hr><h1 id="Communication-Efficient-Distributed-Statistical-Inference"><a href="#Communication-Efficient-Distributed-Statistical-Inference" class="headerlink" title="Communication-Efficient Distributed Statistical Inference"></a>Communication-Efficient Distributed Statistical Inference</h1><h2 id="观众说的"><a href="#观众说的" class="headerlink" title="观众说的"></a>观众说的</h2><ul><li>把不太懂的地方不用重点说，要不然听众听起来莫名其妙的</li><li>选择文章要和自己的工作联系起来，要有启发</li><li>不重要的理论支持可以先不看，重点看算法构建思想，理论需要用的时候再看</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Information-Based-Optimal-Subdata-Selection-for-Big-Data-Linear-Regression"><a href="#Information-Based-Optimal-Subdata-Selection-for-Big-Data-Linear-Regression" class="headerlink" title="Information-Based Optimal Subdata Selection for Big Data Linear Regression"></a>Information-Based Optimal Subdata Selection for Big Data Linear Regression</h1><h2 id="背景与目的"><a href="#背景与目的" class="headerlink" title="背景与目的"></a>背景与目的</h2><ul><li>数据量极大，然而计算能力有限</li><li>选择目标数据中更有代表性的数据，有目的的选择以增强模型的估计效果<ul><li>找数据本身也需要计算量？</li></ul></li></ul><h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><ul><li>$\delta$向量代表是否选择这个变量，使用D-最优性准则——信息矩阵行列式最大化来求解</li><li>因为准确求解计算量较大，我们需要使用近似的方法进行</li><li>这个近似的方法是通过对这个行列式的上界进行分析得到的</li></ul><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ol><li>选择第一个特征的2r个数据点</li><li>选择第二个以及之后所有的特征的，不同于第一步选择到的2r个数据点</li><li>获得了子数据的估计值和协方差矩阵</li></ol><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul><li>选择数据点这件事情本身虽然复杂度不低，但是是可以并行计算的</li><li>可以获得下界具有一些比较好的性质，其本身和上界的阶相似</li><li>为什么最大减最小会趋于零？</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>大数据处理的方式<ul><li>顺序计算</li><li>分布式计算</li><li>样本选择</li></ul></li></ul><hr><h1 id="Communication-Efficient-Distributed-Statistical-Inference"><a href="#Communication-Efficient-Distributed-Statistical-Inference" class="headerlink" title="Communication-Efficient Distributed Statistical Inference"></a>Communication-Efficient Distributed Statistical Inference</h1><h2 id="观众说的"><a href="#观众说的" class="headerlink" title="观众说的"></a>观众说的</h2><ul><li>把不太懂的地方不用重点说，要不然听众听起来莫名其妙的</li><li>选择文章要和自己的工作联系起来，要有启发</li><li>不重要的理论支持可以先不看，重点看算法构建思想，理论需要用的时候再看</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;title-1229组会记录tags-超级大柑橘categories-组会date-2023-12-29-19-03-35&quot;&gt;&lt;a href=&quot;#title-1229组会记录tags-超级大柑橘categories-组会date-2023-12-29-1</summary>
+    <summary type="html">&lt;h1 id=&quot;Information-Based-Optimal-Subdata-Selection-for-Big-Data-Linear-Regression&quot;&gt;&lt;a href=&quot;#Information-Based-Optimal-Subdata-Selection-fo</summary>
       
     
     
     
+    <category term="组会" scheme="https://tjhaitang.github.io/categories/%E7%BB%84%E4%BC%9A/"/>
+    
+    
+    <category term="超级大柑橘" scheme="https://tjhaitang.github.io/tags/%E8%B6%85%E7%BA%A7%E5%A4%A7%E6%9F%91%E6%A9%98/"/>
     
   </entry>
   
