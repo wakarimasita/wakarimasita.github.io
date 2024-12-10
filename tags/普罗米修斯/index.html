@@ -30,7 +30,7 @@
       window.addEventListener('hashchange', switchTab, false);
   })();
   </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="藤椒海棠" type="application/atom+xml">
-</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/iicon.png" alt="藤椒海棠" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="My GitHub" href="https://github.com/TJhaitang"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">普罗米修斯</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-09T06:28:43.000Z" title="2024/12/9 14:28:43">2024-12-09</time>发表</span><span class="level-item"><time dateTime="2024-12-10T19:26:34.015Z" title="2024/12/11 03:26:34">2024-12-11</time>更新</span><span class="level-item">10 分钟读完 (大约1440个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/12/09/Redmibook14pro%E5%AE%89%E8%A3%85archlinux+hyprland%E7%AD%89%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/">Redmibook14pro从零开始的archlinux安装与配置</a></p><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/iicon.png" alt="藤椒海棠" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="My GitHub" href="https://github.com/TJhaitang"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">普罗米修斯</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-09T06:28:43.000Z" title="2024/12/9 14:28:43">2024-12-09</time>发表</span><span class="level-item"><time dateTime="2024-12-10T19:32:27.319Z" title="2024/12/11 03:32:27">2024-12-11</time>更新</span><span class="level-item">10 分钟读完 (大约1440个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/12/09/Redmibook14pro%E5%AE%89%E8%A3%85archlinux+hyprland%E7%AD%89%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/">Redmibook14pro从零开始的archlinux安装与配置</a></p><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://arch.icekylin.online/guide/rookie/basic-install.html">archlinux简明指南</a></li>
 <li><a target="_blank" rel="noopener" href="https://end-4.github.io/dots-hyprland-wiki/zh-cn/i-i/01setup/">end-4&#x2F;dots-hyprland</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/692564515">chinese input for Electron</a></li>
@@ -61,6 +61,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash haitang</span><br><span class="line">passwd haitang</span><br></pre></td></tr></table></figure>
 
 <p>使用<code>vim</code>编辑<code>/etc/sudoers</code>文件，取消<code>%wheel ALL=(ALL) ALL</code>行的注释符号<code>#</code></p>
+<h2 id="设置电源行为"><a href="#设置电源行为" class="headerlink" title="设置电源行为"></a>设置电源行为</h2><p>修改以下内容</p>
+<figure class="highlight bash"><figcaption><span>/etc/systemd/logind.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HandlePowerKey=hibernate</span><br><span class="line">HandleLidSwitchExternalPower=ignore</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>/etc/mkinitcpio.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems resume fsck)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>/etc/defalut/grub</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;quiet resume=UUID=xxx&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>之后，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line">sudo mkinitcpio -P</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ToDo: 设置suspend超时则hibernate</li>
+</ul>
 <h2 id="安装Gnome桌面"><a href="#安装Gnome桌面" class="headerlink" title="安装Gnome桌面"></a>安装Gnome桌面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S gnome-extra</span><br></pre></td></tr></table></figure>
 
 <p>一路回车即可。安装完成后，输入</p>
@@ -87,19 +100,6 @@
 </li>
 </ul>
 <h2 id="给fxitx换一个皮肤"><a href="#给fxitx换一个皮肤" class="headerlink" title="给fxitx换一个皮肤"></a>给fxitx换一个皮肤</h2><p>下载该<a target="_blank" rel="noopener" href="https://www.cnblogs.com/maicss/p/15056420.html">链接</a>中的文件，将其解压到<code>~/.local/share/fcitx5/themes</code>目录下，然后在<code>fcitx5配置</code>中选择该主题即可。</p>
-<h2 id="设置电源行为"><a href="#设置电源行为" class="headerlink" title="设置电源行为"></a>设置电源行为</h2><p>修改以下内容</p>
-<figure class="highlight bash"><figcaption><span>/etc/systemd/logind.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HandlePowerKey=hibernate</span><br><span class="line">HandleLidSwitchExternalPower=ignore</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><figcaption><span>/etc/mkinitcpio.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems resume fsck)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><figcaption><span>/etc/defalut/grub</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;quiet resume=UUID=xxx&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>之后，执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line">sudo mkinitcpio -P</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>ToDo: 设置suspend超时则hibernate</li>
-</ul>
 <h2 id="安装好用的gnome插件"><a href="#安装好用的gnome插件" class="headerlink" title="安装好用的gnome插件"></a>安装好用的gnome插件</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock</a></li>
 <li><a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/1460/vitals/">vitals</a></li>
